@@ -1,0 +1,40 @@
+/** Fleet Feet: 
+Adidas Boston
+Altra Rivera
+Asics Gel Cumulus
+Brooks Ghost 
+Diadora Mythos Volo
+Hoka Clifton 
+Karhu Ikoni 
+New Balance 880
+ON CloudX
+Puma Velocity 
+Saucony Ride
+Topo Phantom 
+Nike Vaporfly 
+Asics Metaspeed SKy
+Saucony Exodus
+**/
+
+CREATE TABLE Fleet_Feet (id INTEGER PRIMARY KEY, brand TEXT, name TEXT, sku INTEGER, price INTEGER);
+INSERT INTO Fleet_Feet VALUES (1, "Adidas", "Boston", 0002871, 150);
+INSERT INTO Fleet_Feet VALUES (2, "Altra", "Rivera", 2930429, 140);
+INSERT INTO Fleet_Feet VALUES (3, "Ascis", "Gel-Cumulus", 3840596, 140);
+INSERT INTO Fleet_Feet VALUES (4, "Brooks", "Ghost", 0003847, 140); 
+INSERT INTO Fleet_Feet VALUES (5, "Diadora", "Mythos Volo", 9390284, 80);
+INSERT INTO Fleet_Feet VALUES (6, "Hoka", "Clifton", 8399940, 145);
+INSERT INTO Fleet_Feet VALUES (7, "Karhu", "Ikoni", 9999934, 130);
+INSERT INTO Fleet_Feet VALUES (8, "New Balance", "880", 8883950, 140);
+INSERT INTO Fleet_Feet VALUES (10, "Puma", "Velocity", 2222948, 120);
+INSERT INTO Fleet_Feet VALUES (9, "ON", "CloudX", 888495, 155);
+INSERT INTO Fleet_Feet VALUES (11, "Saucony", "Ride", 2939482, 140);
+INSERT INTO Fleet_Feet VALUES (12, "Topo", "Phantom", 9086432, 130);
+INSERT INTO Fleet_Feet VALUES (13, "Nike", "Vaporfly", 8884959, 200);
+INSERT INTO Fleet_Feet VALUES (14, "Asics", "Metaspeed Sky", 3338495, 250);
+INSERT INTO Fleet_Feet VALUES (15, "Saucony", "Exodus", 8399483, 160);
+
+-Sum of all shoe prices
+SELECT SUM(PRICE) FROM fleet_feet;
+
+-Creating a list of prices in ascending order
+SELECT (price) FROM fleet_feet ORDER BY (price) asc;
