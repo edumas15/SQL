@@ -66,24 +66,22 @@ INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,Stadium,Cit
 INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,Stadium,City,State) VALUES ('Jan 15 1967','I (1)','Green Bay Packers',35,'Kansas City Chiefs',10,'Bart Starr+','Memorial Coliseum','Los Angeles','California');
 
 This function determines the average superbowl point differential 
-
 SELECT AVG(winner_pts)FROM superbowls;
 SELECT AVG(loser_pts) FROM superbowls;
-
 SELECT AVG(winner_pts) - AVG(loser_pts) as 'avg_score_differential' from superbowls;
 
-This function determines how many winning teams scored at least 40 points in superbowls hosted in Texas
-
+This function determines how many winning teams scored at least 40 points in the superbowl
 SELECT COUNT (winner_pts) AS FOURTY_PTS_IN_SB_COUNT, winner AS TEAM FROM superbowls GROUP BY winner HAVING winner_pts > 40;
 
+This function generates of list of superbowls decided by one score in the state of Texas 
 SELECT state, loser_pts, winner_pts FROM superbowls WHERE winner_pts - loser_pts < 8 AND state='Texas';
 
-This case determines if the superbowl was more offensive or defensive oriented
 
+This case determines if the superbowl was more offensive or defensive oriented
 SELECT 
 CASE 
-WHEN winner_pts > 27.5 THEN 'Offensive Juggernauts'
-WHEN winner_pts < 27.5 THEN 'Defensive Masterclass' 
+WHEN winner_pts > 27.5 THEN 'Good Offense'
+WHEN winner_pts < 27.5 THEN 'Good Defense' 
 END AS Good_Offense_or_Good_Defense 
 FROM 
 superbowls;
