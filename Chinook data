@@ -1,0 +1,26 @@
+Every Sales Support Agent in order of birthdate 
+SELECT * FROM chinook.employees
+WHERE Title = 'Sales Support Agent'
+ORDER BY BirthDate desc;
+
+Invoice data on customers from Brazil 
+SELECT CustomerId, FirstName, LastName, Country, InvoiceDate, Total 
+FROM chinook.customers
+LEFT OUTER JOIN invoices 
+ON customers.CustomerId = invoices.CustomerId
+WHERE Country = 'Brazil';
+
+Every track including Malcolm Young in ascending order
+SELECT Name, Composer, (Milliseconds/1000) Duration_in_seconds
+FROM chinook.tracks
+WHERE Composer LIKE '%Malcolm Young%'
+ORDER BY Duration_in_seconds asc;
+
+5 longest Jazz songs LEFTJOIN to distinguish genre 
+SELECT tracks.Name, (Milliseconds/1000) as Duration, genres.Name as Genre
+FROM chinook.tracks 
+LEFT OUTER JOIN genres
+ON tracks.GenreID = genres.GenreId
+WHERE Genre = 'Jazz'
+ORDER BY Duration desc 
+LIMIT 5;
