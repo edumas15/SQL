@@ -24,3 +24,9 @@ ON tracks.GenreID = genres.GenreId
 WHERE Genre = 'Jazz'
 ORDER BY Duration desc 
 LIMIT 5;
+
+//#Every unique country in the invoices table#//
+SELECT BillingCountry 
+FROM chinook.invoices
+GROUP BY BillingCountry
+HAVING COUNT(DISTINCT CustomerId) = 1;
