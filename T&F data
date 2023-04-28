@@ -1,0 +1,24 @@
+My friends and I are big track & field fans and have always been curious when Olympic women started producing better results than 
+Olympic men over the same distance. To satiate our curiosity, I wrote this query that determines if the 21st century female would beat
+the 20th century male if they went head-to-head. I achieved this with two CTEs and a UNION clause.  
+
+WITH men_results AS (
+    SELECT 'M' AS gender, event, year, result, medal
+    FROM tfresults
+    WHERE event LIKE '%5000M%'
+    AND gender = 'M'
+    and medal = 'G'
+    AND year = '1936'
+), women_results AS (
+    SELECT 'W' AS gender, event, year, result, medal
+    FROM tfresults
+    WHERE event LIKE '%5000M%'
+    AND gender = 'W'
+    AND medal = 'G'
+    AND year = '2016'
+)
+SELECT gender, event, year, result
+FROM men_results
+UNION ALL
+SELECT gender, event, year, result
+FROM women_results;
